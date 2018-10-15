@@ -18,7 +18,7 @@ try{
     
     }  
     }catch(error) {
-      currentBulid.result = 'FAILURE'
+      currentBulid.result = 'this is fucked up'
       throw error
     }
    

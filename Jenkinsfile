@@ -14,9 +14,12 @@ try{
       
     }
     
-    catch (error) {
+    
+    
+    }  
+    }catch(error) {
       currentBulid.result = 'FAILURE'
       throw error
     }
-   }
-  }
+   
+  

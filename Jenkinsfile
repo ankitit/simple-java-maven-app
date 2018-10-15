@@ -10,7 +10,7 @@ try{
      
     stage('Maven Build'){
        
-        sh 'mvn clean package'
+        sh 'clean package'
       
     }
     

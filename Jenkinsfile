@@ -17,14 +17,8 @@ pipeline {
       withMaven(maven : 'maven 3.0.5') {
             sh 'mvn test'
                 }
-          }
-      }      
-   }          
-       post {
-                failure { 
-                    archive "target/**/*"
-                    junit 'target/surefire-reports/*.xml'
-                }
             }
-      }
+        }      
+    }          
+ }     
  

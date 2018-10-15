@@ -1,14 +1,17 @@
 
 pipeline {
-  agent 
+  agent any
      stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+              withMaven(maven : 'Maven 3.0.5') {
+              sh 'mvn clean package'
             }
         }
  
-     }
+      }
+    }  
+       
             post {
                 failure { 
                     archive "target/**/*"

@@ -1,20 +1,22 @@
-
-pipeline {
-  agent any
-     stages {
-        stage('Compile-Package') {
-            steps {
-              withMaven(maven : 'maven 3.0.5') {
-              sh 'mvn clean package'
-            }
-        }
- 
-      }
-        post {
-                failure { 
-                    archive "target/**/*"
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-      }
+try{
+       
+  node{
+    
+    stage('Git Checkout'){
+      
+      git 'https://github.com/ankitit/simple-java-maven-app.git'
+      
+    }
+     
+    stage('Maven Build'){
+       
+        sh 'mvn clean package'
+      
+    }
+    
+    catch (error) {
+      currentBulid.result = 'FAILURE'
+      throw error
+    }
+   }
   }

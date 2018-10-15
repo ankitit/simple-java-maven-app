@@ -10,3 +10,11 @@ pipeline {
         }
  
       }
+        post {
+                failure { 
+                    archive "target/**/*"
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+      }
+  }

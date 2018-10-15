@@ -18,12 +18,13 @@ pipeline {
             sh 'mvn test'
                 }
           }
-     }      
-                post {
+      }      
+   }          
+       post {
                 failure { 
                     archive "target/**/*"
                     junit 'target/surefire-reports/*.xml'
                 }
             }
       }
- }
+ 

@@ -17,6 +17,20 @@
   </dependencies>
   <build>
     <plugins>
+      <distributionManagement>
+	<repository>
+		<id>deploymentRepo</id>
+		<name>Internal Releases</name>
+		<url>http://18.191.253.8:8081/repository/maven-releases/</url>
+	</repository>
+ 
+	<snapshotRepository>
+		<id>deploymentRepo</id>
+		<name>Internal Releases</name>
+		<url>http://18.191.253.8:8081/repository/maven-snapshots/</url>
+	</snapshotRepository>
+</distributionManagement>
+
       <plugin>
         <!-- Build an executable JAR -->
         <groupId>org.apache.maven.plugins</groupId>
